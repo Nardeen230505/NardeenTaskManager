@@ -20,7 +20,7 @@ public class SplashScreen extends AppCompatActivity {
         Handler h=new Handler(); //تعريف كائن من نوع Handler
         Runnable r=new Runnable() {
             @Override
-            public void run() { //anonimos class
+            public void run() { //anonymous class
                 Intent i=new Intent(SplashScreen.this,SignIn.class);
                         startActivity(i);
 

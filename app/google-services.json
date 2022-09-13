@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "578996798306",
+    "firebase_url": "https://nardeentaskmanager-default-rtdb.firebaseio.com",
+    "project_id": "nardeentaskmanager",
+    "storage_bucket": "nardeentaskmanager.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578996798306:android:79fa7f65aa084566d2a23b",
+        "android_client_info": {
+          "package_name": "ow.nardeen.nardeentaskmanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "578996798306-9qd04blu2agrdld5ucntuaekt1upm33t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD44kAknj472006DXdlodpqZoA3LxPwn8k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "578996798306-9qd04blu2agrdld5ucntuaekt1upm33t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
