@@ -11,7 +11,7 @@ public class SplashScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen);
+        setContentView(R.layout.activity_splash_screen); //يبني واحهة المستعمل بحيث تبني كل الكائنات الموجودة بملف التنسيق xml
 
         //start next activity/screen otamaticly after period of time
         //فتح الشاشة التالية تلقائيا بعد فترة من الزمن
