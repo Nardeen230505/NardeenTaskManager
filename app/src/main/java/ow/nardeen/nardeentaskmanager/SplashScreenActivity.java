@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class SplashScreen extends AppCompatActivity {
+public class SplashScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class SplashScreen extends AppCompatActivity {
         Runnable r=new Runnable() {
             @Override
             public void run() { //anonymous class
-                Intent i=new Intent(SplashScreen.this,SignIn.class);
+                Intent i=new Intent(SplashScreenActivity.this, SignInActivity.class);
                         startActivity(i);
 
               finish();//اغلاق الشاشة الحالية

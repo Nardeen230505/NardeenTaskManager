@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-public class SignUp extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 private TextInputEditText etEmail2;
 private TextInputEditText etPassword;
 private TextInputEditText etRepassword;
@@ -23,5 +23,14 @@ private Button btnSave;
         etPassword=findViewById(R.id.etPassword);
         etRepassword=findViewById(R.id.etRepassword);
         btnSave=findViewById(R.id.btnSave);
+    }
+
+    private void CheckAndSave()
+    {
+        String email=etEmail2.getText().toString();
+        String password=etPassword.getText().toString();
+        String rePassword=etRepassword.getText().toString();
+
+        boolean isOk=true;
     }
 }
