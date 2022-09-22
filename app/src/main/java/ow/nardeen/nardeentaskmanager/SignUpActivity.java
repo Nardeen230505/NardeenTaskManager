@@ -1,12 +1,17 @@
 package ow.nardeen.nardeentaskmanager;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -56,7 +61,22 @@ private Button btnSave;
         if(isOk)
         {
             FirebaseAuth auth1=FirebaseAuth.getInstance();
-            auth1.signInWithEmailAndPassword(email,password);
+            auth1.createUserWithEmailAndPassword(email,password).
+                    addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful())
+                    {
+                        Toast.makeText(SignUpActivity.this, "Email and password are saved", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                    else {
+                        Toast.makeText(SignUpActivity.this, "Saving the e-mail and passwrd is failed!"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+            });
+
         }
 
 
