@@ -18,7 +18,7 @@
         android:layout_height="516dp" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imgBAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/ic_input_add" />
