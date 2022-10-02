@@ -13,13 +13,15 @@ import android.widget.ListView;
 import android.widget.SearchView;
 
 public class MainActivity extends AppCompatActivity {
-
+//تعريف صفات الكلاس
     private SearchView search;
     private ListView list;
     private ImageButton imgBAdd;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { //When an Activity first call or launched then onCreate(Bundle savedInstanceState) method is responsible to create the activity.
+        //After Orientation changed then onCreate(Bundle savedInstanceState) will call and recreate the activity and load all data from savedInstanceState.
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imgBAdd=findViewById(R.id.imgBAdd);
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         imgBAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Register a callback to be invoked when this view is clicked. If this view is not clickable, it becomes clickable.
                 Intent in=new Intent(MainActivity.this, AddTaskActivity.class);
                 startActivity(in);
             }

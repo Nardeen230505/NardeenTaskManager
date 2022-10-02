@@ -16,18 +16,19 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SignInActivity extends AppCompatActivity {
+    //تعريف صفاتا الكلاس
     private TextInputEditText etEmail;
     private TextInputEditText etPassword;
     private Button btnSignUp;
     private Button btnSignIn;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle savedInstanceState) { //When an Activity first call or launched then onCreate(Bundle savedInstanceState) method is responsible to create the activity.
+//After Orientation changed then onCreate(Bundle savedInstanceState) will call and recreate the activity and load all data from savedInstanceState.
+        super.onCreate(savedInstanceState); //اول اشي بشتغل لما نشغل البرنامج
         setContentView(R.layout.activity_sign_in); //يبني واحهة المستعمل بحيث تبني كل الكائنات الموجودة بملف التنسيق xml
 
-
+//حقول الصفات
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         btnSignUp = findViewById(R.id.btnSignUp);
@@ -45,10 +46,11 @@ public class SignInActivity extends AppCompatActivity {
             public void onClick(View view) {
                 checkAndSave();
             }
+            //Register a callback to be invoked when this view is clicked. If this view is not clickable, it becomes clickable.
         });
     }
 
-    private void checkAndSave() {
+    private void checkAndSave() { //عملية تفحص اذا كل اشي تمام
         String email = etEmail.getText().toString();
         String password = etPassword.getText().toString();
 
@@ -84,7 +86,7 @@ public class SignInActivity extends AppCompatActivity {
                     {
                         Toast.makeText(SignInActivity.this, "Successful", Toast.LENGTH_SHORT).show();
                         Intent i=new Intent(SignInActivity.this,MainActivity.class);
-                        startActivity(i);
+                        startActivity(i); //بدء تشغيل الشاشة
                         finish(); //لتسكير الشاشة
                     }
                 else

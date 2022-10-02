@@ -15,13 +15,15 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SignUpActivity extends AppCompatActivity {
+    //تعريف صفات الكلاس
 private TextInputEditText etEmail2;
 private TextInputEditText etPassword;
 private TextInputEditText etRepassword;
 private Button btnSave;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { //When an Activity first call or launched then onCreate(Bundle savedInstanceState) method is responsible to create the activity.
+//After Orientation changed then onCreate(Bundle savedInstanceState) will call and recreate the activity and load all data from savedInstanceState.
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
@@ -34,6 +36,7 @@ private Button btnSave;
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Register a callback to be invoked when this view is clicked. If this view is not clickable, it becomes clickable.
                 CheckAndSave();
             }
             //بس نكبس على زر سيف بروح على الدالة تشيك اند سيف بعمل كل الخطوات والأوامر الموجودة بهاي الدالة وبفحص كل الشروط واذا كانت كل الشروط ترو بعمل فينيش اذا لا بروح بنفذ ال ايلس (وبس يعمل فينيش برجع من الصفحة ساين اب لصفحة الساين ان)
