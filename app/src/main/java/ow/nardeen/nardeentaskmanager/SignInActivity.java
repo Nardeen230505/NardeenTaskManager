@@ -36,7 +36,7 @@ public class SignInActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { //الي بين قوسين هو بارامتر الي تسبب بالحدث
-                Intent i1 = new Intent(SignInActivity.this, SignUpActivity.class);
+                Intent i1 = new Intent(SignInActivity.this, SignUpActivity.class); //الانتقال من شاشة لشاشة عن طريق الكائنi1
                 startActivity(i1);
             }
         });
@@ -45,7 +45,7 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 checkAndSave();
-            }
+            } // استدعاء الدالة checkAndSave
             //Register a callback to be invoked when this view is clicked. If this view is not clickable, it becomes clickable.
         });
     }
