@@ -12,6 +12,8 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SearchView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
 //تعريف صفات الكلاس
     private SearchView search;
@@ -64,8 +66,10 @@ public class MainActivity extends AppCompatActivity {
 
         if (item.getItemId()==R.id.itmSignOut)
         {
-            Intent iSO=new Intent(MainActivity.this,SignInActivity.class);
-            startActivity(iSO);
+
+            FirebaseAuth.getInstance().signOut(); //تسجيل الخروج
+            finish();
+
         }
         return true;
     }
