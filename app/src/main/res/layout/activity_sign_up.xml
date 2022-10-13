@@ -45,7 +45,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnSignUpSave"
+        android:id="@+id/btnSave"
         android:layout_width="211dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"

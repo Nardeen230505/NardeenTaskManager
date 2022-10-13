@@ -1,12 +1,12 @@
 package ow.nardeen.nardeentaskmanager.Data;
-
+// فئة تصف مهمة بادارة المهمات
 public class Mahama
 {
-    private String key;
+    private String key; // رقم مُميِّز للمهمة يتم اتاجه من قِبل الخادم - firebase
     private String title;
     private String subject;
-    private int importance;
-    private String owner;
+    private int important;
+    private String owner; // رقم مُميِّز للمستعمل
 
     public Mahama()
     {
@@ -17,7 +17,7 @@ public class Mahama
     {
         return this.key;
     }
-    public void setKey()
+    public void setKey(String key)
     {
         this.key=key;
     }
@@ -26,7 +26,7 @@ public class Mahama
     {
         return this.title;
     }
-    public void setTitle()
+    public void setTitle(String title)
     {
         this.title=title;
     }
@@ -35,25 +35,25 @@ public class Mahama
     {
         return this.subject;
     }
-    public void setSubject()
+    public void setSubject(String subject)
     {
         this.subject=subject;
     }
 
-    public int getImportance()
+    public int getImportance(int sbImportant)
     {
-        return this.importance;
+        return this.important;
     }
-    public void setImportance()
+    public void setImportance(int important)
     {
-        this.importance=importance;
+        this.important=important;
     }
 
     public String getOwner()
     {
         return this.owner;
     }
-    public void setOwner()
+    public void setOwner(String owner)
     {
         this.owner=owner;
     }
@@ -64,7 +64,7 @@ public class Mahama
                 "key='" + key + '\'' +
                 ", title='" + title + '\'' +
                 ", subject='" + subject + '\'' +
-                ", importance=" + importance +
+                ", importance=" + important +
                 ", owner='" + owner + '\'' +
                 '}';
     }

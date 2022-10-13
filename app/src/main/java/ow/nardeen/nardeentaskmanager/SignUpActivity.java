@@ -31,7 +31,7 @@ private Button btnSave;
         etEmail2=findViewById(R.id.etEmail2);
         etPassword=findViewById(R.id.etPassword);
         etRepassword=findViewById(R.id.etRepassword);
-        btnSave=findViewById(R.id.btnSignUpSave);
+        btnSave=findViewById(R.id.btnSave);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
