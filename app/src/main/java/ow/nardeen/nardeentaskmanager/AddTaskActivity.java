@@ -60,13 +60,13 @@ public class AddTaskActivity extends AppCompatActivity {
         String owner= FirebaseAuth.getInstance().getCurrentUser().getUid();
         m.setOwner(owner);
 
-        // استخراج الرقم المميز للمهمة
+        // انتاج الرقم المميز للمهمة
         String key=FirebaseDatabase.getInstance().getReference().
                 child("mahama").child(owner).push().getKey();
         m.setKey(key);
 
         //حفظ بالخادم
-        FirebaseDatabase.getInstance().getReference().child(key).setValue(m)
+        FirebaseDatabase.getInstance().getReference(). child("mahama").child(owner).child(key).setValue(m)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
