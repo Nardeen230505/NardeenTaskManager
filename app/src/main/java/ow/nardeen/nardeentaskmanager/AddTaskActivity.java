@@ -76,7 +76,7 @@ public class AddTaskActivity extends AppCompatActivity {
                             Toast.makeText(AddTaskActivity.this, "added successfully", Toast.LENGTH_SHORT).show();
                         }
                         else {
-                            Toast.makeText(AddTaskActivity.this, "added failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddTaskActivity.this, "added failed"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
