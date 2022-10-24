@@ -15,6 +15,11 @@ import android.widget.ListView;
 import android.widget.SearchView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 //تعريف صفات الكلاس
@@ -101,4 +106,31 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+
+    private void readMahamatFromFireBase()
+    {
+        //مؤشر لجذر قاعدة البيانات التابعة للمشروع
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        // listener لمراقبة أي تغيير يحدث تحت الجذر المحدد
+        // أي تغيير بقيمة صفة او حذف او اضافة كائن يتم اعلام الlistener
+        //عند حدوت التغيير يتم تنزيل او تحميل كل المعطيات الموجودة تحت الجذر
+
+        reference.child("mahamat").addValueEventListener(new ValueEventListener() {
+            /**
+             * دالة معالجة حدث عند تغيير اي قيمة
+             * @param snapshot يحوي نسخة عن كل المعطيات تحت العنوان المُراقب - العناوان المراقب يعني العنوان الي حاطة عليه ليسينير-
+             */
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) { // هادا معالج حدث للداتا تشينج يعني معالج حدث بالفاير بيس
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        }); //الممشاك بدو تطبيق عن طريق بناء كائن الي بعمل انينوموس كلاس
+    }
+
+
 }
