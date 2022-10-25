@@ -40,7 +40,7 @@ public class Mahama
         this.subject=subject;
     }
 
-    public int getImportance(int sbImportant)
+    public int getImportance()
     {
         return this.important;
     }

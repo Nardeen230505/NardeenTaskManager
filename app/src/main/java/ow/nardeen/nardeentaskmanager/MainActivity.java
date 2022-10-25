@@ -21,7 +21,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import ow.nardeen.nardeentaskmanager.Data.TaskAdapter;
+
 public class MainActivity extends AppCompatActivity {
+
+    // 3. بناء الوسيط TaskAdapter
+    TaskAdapter taskAdapter;
+    //قائمة عرض المهمات
+    ListView lstview;
+
+
 //تعريف صفات الكلاس
     private SearchView search;
     private ListView list;
@@ -32,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         //After Orientation changed then onCreate(Bundle savedInstanceState) will call and recreate the activity and load all data from savedInstanceState.
 
         super.onCreate(savedInstanceState);
+        // قوم ببناء شاشة التنسيق وكل الكائنات التي تحويها
         setContentView(R.layout.activity_main);
         imgBAdd=findViewById(R.id.imgBAdd);
 
@@ -43,6 +53,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(in);
             }
         });
+
+        // تابع لخطوة 3 - بناء الوسيط (الادابتر)
+        taskAdapter=new TaskAdapter(getApplicationContext());
+        // تجهيز مؤشر لقائمة العرض
+        lstview=findViewById(R.id.list);
+        // تابع لخطوة 3 - ربط قائمة العرض بالوسيط
+        lstview.setAdapter(taskAdapter);
     }
 
     @Override
@@ -118,10 +135,18 @@ public class MainActivity extends AppCompatActivity {
         reference.child("mahamat").addValueEventListener(new ValueEventListener() {
             /**
              * دالة معالجة حدث عند تغيير اي قيمة
-             * @param snapshot يحوي نسخة عن كل المعطيات تحت العنوان المُراقب - العناوان المراقب يعني العنوان الي حاطة عليه ليسينير-
+             * @param snapshot يحوي نسخة عن كل المعطيات تحت العنوان المُراقب - العنوان المراقب يعني العنوان الي حاطة عليه ليسينير-
              */
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) { // هادا معالج حدث للداتا تشينج يعني معالج حدث بالفاير بيس
+            public void onDataChange(@NonNull DataSnapshot snapshot)
+            { // هادا معالج حدث للداتا تشينج يعني معالج حدث بالفاير بيس
+
+                // remove all tasks
+                taskAdapter.clear();
+
+                // استخراج المعطيات ونحطهن بالادابتير
+
+
 
             }
 
