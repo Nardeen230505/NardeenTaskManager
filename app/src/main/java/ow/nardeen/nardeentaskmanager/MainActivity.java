@@ -21,6 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import ow.nardeen.nardeentaskmanager.Data.Mahama;
 import ow.nardeen.nardeentaskmanager.Data.TaskAdapter;
 
 public class MainActivity extends AppCompatActivity {
@@ -60,6 +61,11 @@ public class MainActivity extends AppCompatActivity {
         lstview=findViewById(R.id.list);
         // تابع لخطوة 3 - ربط قائمة العرض بالوسيط
         lstview.setAdapter(taskAdapter);
+
+        //تشغيل "مراقب" على قاعدة البيانات
+        // ويقوم بتنظيف المعطيات الموجة (حذفها) وتنزيل المعلومات الجديدة
+        readMahamatFromFireBase();
+
     }
 
     @Override
@@ -131,8 +137,8 @@ public class MainActivity extends AppCompatActivity {
         // listener لمراقبة أي تغيير يحدث تحت الجذر المحدد
         // أي تغيير بقيمة صفة او حذف او اضافة كائن يتم اعلام الlistener
         //عند حدوت التغيير يتم تنزيل او تحميل كل المعطيات الموجودة تحت الجذر
-
-        reference.child("mahamat").addValueEventListener(new ValueEventListener() {
+        String owner = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        reference.child("mahama").child(owner).addValueEventListener(new ValueEventListener() {
             /**
              * دالة معالجة حدث عند تغيير اي قيمة
              * @param snapshot يحوي نسخة عن كل المعطيات تحت العنوان المُراقب - العنوان المراقب يعني العنوان الي حاطة عليه ليسينير-
@@ -141,17 +147,22 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot)
             { // هادا معالج حدث للداتا تشينج يعني معالج حدث بالفاير بيس
 
-                // remove all tasks
+                // remove all tasks from adapter
                 taskAdapter.clear();
 
                 // استخراج المعطيات ونحطهن بالادابتير
+                for (DataSnapshot d:snapshot.getChildren()) {
+                    //d يمر على جميع قيم مبنى المعطيات
 
+                    Mahama m=d.getValue(Mahama.class); //استخراج الكائن المحفوظ
+                    taskAdapter.add(m); //اضافة كائن للوسيط
 
-
+                }
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError error)
+            {
 
             }
         }); //الممشاك بدو تطبيق عن طريق بناء كائن الي بعمل انينوموس كلاس
